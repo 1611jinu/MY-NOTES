@@ -39,11 +39,11 @@ echo “$WORDing” is fun!”
 ENDING=’ed’
 
 #Combine the two variables
-echo “This is ${WORD}{ENDING}”
+echo “This is ${WORD}${ENDING}”
 
 #Change the value stored in the ENDING variable (Reassignment)
 ENDING=’ing’
-echo “${WORD}{ENDING} is fun!”
+echo “${WORD}${ENDING} is fun!”
 
 echo "========Script made by JinalRaval================="
 
