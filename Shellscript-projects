@@ -1,0 +1,145 @@
+# = Sharp
+! = Bang
+#! = Shebang
+
+echo is shell builtin
+type echo
+type -a echo 
+help echo
+uptime is not shell buitin
+man uptimer  
+
+# This script displays various information to the screen
+
+# Display ‘Hello’
+echo ‘Hello’
+
+# Assign a value to a variable
+WORD=’script’
+
+#Display that value using the variable
+echo “$WORD”
+
+#Demonstrate that single quotes cause variables to Not get expanded
+echo ‘$WORD’
+# Combine the variable with hard-coded text
+echo “This is a shell $WORD”
+
+#Display the contents of the variable using an alternative syntax 
+echo “This is a shell ${WORD}”
+
+#Append text to the variable.
+echo “${WORD}ing is fun!”
+
+#Show how not to append text to a variable
+#This doesn’t work:
+echo “$WORDing” is fun!”
+
+#Create a new variable
+ENDING=’ed’
+
+#Combine the two variables
+echo “This is ${WORD}{ENDING}”
+
+#Change the value stored in the ENDING variable (Reassignment)
+ENDING=’ing’
+echo “${WORD}{ENDING} is fun!”
+
+echo "========Script made by JinalRaval================="
+
+#!/bin/bash
+# Display the UID and username of the user executing this script.
+# Display if the user is the root user or not.
+
+# Display the UID
+echo "Your UID is ${UID}"
+#man bash 
+
+# Display the username
+#type -a id
+#man id
+#id
+#id -u
+#id -u -n
+#id -un
+#id -nu
+#whoami
+#type -a whoami
+#man whoami
+USER_NAME=$(id -un)
+echo "Your username is ${USER_NAME}"
+
+# Display if the user is the root user or not.
+if [[ "${UID}" -eq 0 ]]
+then
+	echo 'You are root.'
+else
+	echo 'You are not root.'
+fi
+#type -a if
+#help if
+#colon is used to interpret new line. You can put all code in one line.
+#type -a [[
+#type -a test
+#help test
+#type -a [
+
+echo “========Script made by Jinal Raval===============”
+
+#!/bin/bash
+# Display the UID and username of the user executing this script.
+# Display if the user is the jinal user or not.
+
+# Display the UID
+echo "Your UID is ${UID}"
+
+# Only display if the UID does NOT match 1000
+UID_TO_TEST_FOR='1000'
+if [[ "${UID}" -ne ${UID_TO_TEST_FOR} ]]
+then
+	echo "YOUR UID does not match ${UID_TO_TEST_FOR}"
+	exit 1
+fi
+#man useradd
+#type -a exit
+#help exit
+#help test
+
+#Display the username 
+USER_NAME=$(id -un)  
+
+#Test if the id command succeeded
+if [[ "${?}" -ne 0 ]]
+then
+	echo 'The id commmand did not execute succesfully'
+	exit 1
+fi
+echo "Your username is ${USER_NAME}"
+#id -un
+#echo "${?}"
+#id -unx
+#echo "${?}"
+
+#You can use a string test conditional
+UID_TO_TEST_FOR='jinal'
+if [[ "${USER_NAME}" = "${UID_TO_TEST_FOR}" ]]
+then
+	echo "Your username matches ${UID_TO_TEST_FOR}"
+fi
+#echo "${?}"
+
+#Test for != (not equal) for the string
+if [[ "${USER_NAME}" != "${UID_TO_TEST_FOR}" ]]
+then
+	echo "Your username does not match ${UID_TO_TEST_FOR}"
+	exit 1
+fi
+
+exit 0
+#echo "${?}"
+
+
+
+
+
+
