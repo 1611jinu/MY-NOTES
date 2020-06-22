@@ -310,6 +310,28 @@ do
 	echo "${USER_NAME}: ${PASSWORD}"
 done 
 
+echo===========Script made by Jinal Raval=================================
+
+#!/bin/bash
+
+#Demonstrate the use of shift and while loops
+
+#Display the first three parameters
+echo "parameters 1: ${1}"
+echo "parameters 2: ${2}"
+echo "parameters 3: ${3}"
+
+#Loop through all the positional parameters
+while [[ "${#}" -gt 0 ]]
+do
+	echo "Number of parameters: ${#}"
+	echo "parameters 1: ${1}"
+        echo "parameters 2: ${2}"
+        echo "parameters 3: ${3}"
+        echo
+        shift
+done
+
 
 
 
